@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-light justify-content-evenly">
+  <div class="iconPart">
+    <nav><h2 class="navbar-brand" routerLink="">SHOPPING MART</h2></nav>
+    <ul>
+    <li class="nav-item active">
+      <nav><h3 class="nav-link" routerLink="">Home</h3></nav>
+    </li>
+    <li class="nav-item active">
+      <nav><h3 class="nav-link" routerLink="">Features</h3></nav>
+    </li>
+    </ul>
+  </div>
+   <div class="iconPart-menu">
+  <form class="form-inline" (submit)="onSearch()">
+    <div class="d-flex align-items-center my-auto">
+
+      <input class="form-control mr-sm-2 term" type="text" placeholder="Searching ....." aria-label="Search" name="term" [(ngModel)]="searchTerm"
+      >
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </form>
+  <ul class="btn-ul">
+    <li>
+  <button class="wishlistBtn">
+  <mat-icon>favorite</mat-icon><p>wishlist</p>
+  </button>
+  </li>
+  <li>
+
+  <nav>
+    <button class="cartBtn" routerLink="cart">
+    <mat-icon>add_shopping_cart</mat-icon><p>Cart</p>
+    </button>
+</nav>
+</li>
+<li>
+  <nav>
+  <button type="button" class="btn btn-primary login" routerLink="login">Sign Up/Sign In</button>
+  </nav>
+</li>
+</ul>
+</div>
+

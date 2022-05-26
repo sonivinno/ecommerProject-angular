@@ -1,0 +1,52 @@
+
+
+<div>
+  <ul class="add-to-cart" *ngFor="let item of products">
+  <li>
+    <img [src]="item.img" alt="Found Image" class="addToCartImg">
+  </li>
+  <li>
+    <h3>Title : {{item.title}}</h3>
+    <p>description : {{item.description}}</p>
+    <h3>Price :{{item.description}} </h3>
+    <input type="number" placeholder="Qty"><br><br>
+    <select>
+      <option selected>Size : </option>
+      <option value="1">S</option>
+      <option value="2">M</option>
+      <option value="3">L</option>
+      <option value="3">XL</option>
+      <option value="3">XXL</option>
+    </select>
+  </li>
+  <li>
+    <button type="button" (click)="removeHandler(item.cartId)" class="btn btn-danger"><mat-icon>close</mat-icon></button>
+  </li>
+  </ul>
+
+  <div>
+    <h2 style="text-align: center">Price Details</h2>
+    <hr>
+    <div class="calculation">
+    <div>
+      <p>Total MRP </p>
+      <p>Coupon Discount </p>
+      <p>Convenience fee </p>
+    </div>
+    <div>
+      <p>556</p>
+      <p>Apply Coupon</p>
+      <p>Free</p>
+    </div>
+    </div>
+    <hr>
+    <div class="calculation">
+      <h3>Total Amount</h3>
+      <h3>556</h3>
+    </div>
+</div>
+<!-- <router-outlet></router-outlet> -->
+
+
+
+

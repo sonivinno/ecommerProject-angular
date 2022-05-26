@@ -1,0 +1,22 @@
+.iconPart{
+  display: flex;
+  justify-content: space-around;
+}
+.wishlistBtn,.cartBtn{
+  border-style: none;
+  padding: 0.4rem;
+}
+.cartBtn,.login{
+  margin-left: 0.6rem;
+}
+.iconPart-menu
+{
+  display: flex;
+  justify-content: space-evenly;
+}
+ul{
+  list-style: none;
+  display: flex;
+}
+
+

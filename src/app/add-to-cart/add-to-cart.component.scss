@@ -1,0 +1,18 @@
+
+
+.add-to-cart{
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  background-color: grey;
+}
+.calculation
+{
+  display: flex;
+  justify-content: space-around;
+}
+.addToCartImg{
+  height: 270px;
+  width: 100%;
+  object-fit: contain;
+}

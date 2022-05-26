@@ -1,0 +1,44 @@
+
+.imgdescription{
+  margin-top: 5rem;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+}
+.single-image{
+  height: 270px;
+  width: 100%;
+  object-fit: contain;
+}
+.img ,.description{
+  width: 30%;
+  height: 50%;
+  // border: solid;
+}
+.description{
+  box-shadow: 3px 2px 2px 3px #dad7d7;
+  padding: 2.6rem;
+}
+.img {
+  padding: 2.4rem;
+  box-shadow: 5px 5px 5px 4px #dad7d7;
+}
+.btn-shopping,.btn-buy{
+  border-style: none;
+  background-color: orange;
+  font-weight: 500;
+  font-size: medium;
+  padding: 1rem;
+  width: 47%;
+}
+.btn-buy{
+  background-color: orangered ;
+}
+.btn{
+  margin-top: 4rem;
+  // border: solid;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}

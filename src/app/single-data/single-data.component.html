@@ -1,0 +1,19 @@
+<div class="imgdescription">
+  <div class="img">
+    <div>
+    <img class="single-image" [src]="product.img" alt="NOT FOUND IMAGE">
+    </div>
+    <div class="btn">
+      <button type="button" class="btn-shopping"><mat-icon>shopping_cart</mat-icon> ADD TO CART</button>
+      <button type="button" class="btn-buy"><mat-icon>bolt</mat-icon> BUY NOW</button>
+    </div>
+  </div>
+  <div class="description">
+    <h2>Honey by Pantaloons</h2>
+    <h4 style="color: gray">wome White Floral Print Shirt Style Top</h4>
+    <h1>Title : {{product.title}}</h1>
+    <p>Description : {{product.description}}</p>
+    <h3><mat-icon>currency_rupee</mat-icon> : {{product.price}}</h3>
+    <!-- <p>{{product | json}}</p> -->
+  </div>
+</div>
