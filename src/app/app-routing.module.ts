@@ -5,12 +5,14 @@ import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SingleDataComponent } from './single-data/single-data.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:'' , component: HomeComponent},
   {path:'cart' , component: AddToCartComponent, canActivate: [AuthGuard]},
   {path:'login' , component: LoginComponent},
-  {path:'product/:id', component: SingleDataComponent}
+  {path:'product/:id', component: SingleDataComponent},
+  {path: 'wishlist' , component : WishlistComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

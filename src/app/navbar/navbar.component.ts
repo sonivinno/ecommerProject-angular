@@ -8,7 +8,9 @@ import { ProductServiceService } from '../service/product-service.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  searchTerm: string = ""
+  searchTerm: string = "";
+  isLoggedIn: boolean = false;
+  
   constructor(private productService: ProductServiceService) { }
 
   ngOnInit(): void {

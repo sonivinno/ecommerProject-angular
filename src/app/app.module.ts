@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SingleDataComponent } from './single-data/single-data.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 @NgModule({
@@ -25,7 +26,7 @@ import { SingleDataComponent } from './single-data/single-data.component';
     CarouselsComponent,
     ViewDataComponent,
     // AddToCartComponent,
-    NavbarComponent,routingComponents, HomeComponent, LoginComponent, SingleDataComponent,
+    NavbarComponent,routingComponents, HomeComponent, LoginComponent, SingleDataComponent, WishlistComponent,
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

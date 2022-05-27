@@ -1,0 +1,22 @@
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-3 mb-5" *ngFor="let wishlistItem of wishlistProducts">
+        <div class="mx-2 border shadow p-3 mb-5 bg-body rounded">
+          <div class="fav-btn">
+          <button mat-button="Accent"><mat-icon>favorite_border</mat-icon></button>
+          </div>
+          <nav><img [src]="wishlistItem.img" class="product-img"
+            alt="Not Found"></nav>
+          <div>
+            <h2>{{wishlistItem.title}}</h2>
+            <small style="color: gray">Description : {{wishlistItem .description}}</small>
+            <h3><mat-icon>currency_rupee</mat-icon> {{wishlistItem.price}}</h3>
+             <!-- <button mat-button="Accent"><mat-icon>favorite</mat-icon></button> -->
+            <button type="button" class="btn btn-primary">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

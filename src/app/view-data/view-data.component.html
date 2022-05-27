@@ -3,7 +3,8 @@
     <div class="col-md-3 mb-5" *ngFor="let product of filteredProducts">
       <div class="mx-2 border shadow p-3 mb-5 bg-body rounded">
         <div class="fav-btn">
-        <button mat-button="Accent"><mat-icon>favorite</mat-icon></button>
+        <div (click)="addToWishlist(product)" 
+        ><div><mat-icon [style.color]="isProductInCart(product.id) ? 'red':'white'">favorite</mat-icon></div></div>
         </div>
         <nav><img [src]="product.img" class="product-img" [routerLink]="['product',product.id]"
           alt="Not Found"></nav>
@@ -11,7 +12,6 @@
           <h2> {{product.title}}</h2>
           <small style="color: gray">{{product.description}}</small>
           <h3>Price : {{product.price}}</h3>
-           <!-- <button mat-button="Accent"><mat-icon>favorite</mat-icon></button> -->
 
           <button type="button" class="btn btn-primary" (click)="addToCartHanler(product)">Add to cart</button>
         </div>

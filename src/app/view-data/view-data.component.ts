@@ -2,9 +2,9 @@ import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/cor
 import { CartService } from '../service/cart.service';
 import { Product } from '../../models/product';
 import { ProductServiceService } from '../service/product-service.service';
-import { NavbarComponent } from '../navbar/navbar.component';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { WishlistService } from '../service/wishlist.service';
 
 
 @Component({
@@ -15,9 +15,12 @@ import { Router } from '@angular/router';
 export class ViewDataComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  isLoggedInAuthenticationChecking!: boolean
+  isLoggedInAuthenticationChecking!: boolean;
+  isCheckingWishlist : boolean = false
 
-  constructor(private productService: ProductServiceService, private cartService: CartService, private authService: AuthService, private route: Router) { }
+  constructor(private productService: ProductServiceService, private cartService: CartService, 
+    private authService: AuthService, 
+    private route: Router,private wishlistService : WishlistService) { }
 
   ngOnInit() {
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
@@ -50,7 +53,28 @@ export class ViewDataComponent implements OnInit {
       }
     })
     // console.log(this.isLoggedInAuthenticationChecking )
+  }
 
+  addToWishlist(product: any){
+    console.log(product)
+    this.wishlistService.getAll().subscribe( wishlistProduct =>{
+      console.log(wishlistProduct)
+
+      let wishlistItem = wishlistProduct.find((value : any)=>{
+        return product.id === value.id
+      })
+      if(!this.isLoggedInAuthenticationChecking){
+        this.route.navigate(['login'])
+      }else {
+        this.isCheckingWishlist = true
+        !wishlistItem && this.wishlistService.create(product).subscribe();
+      }
+    })
+  }
+
+  isProductInCart(productId: number) {
+
+    return true
   }
 
 
