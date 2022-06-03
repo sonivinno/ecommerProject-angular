@@ -4,7 +4,10 @@
       <div class="col-md-3 mb-5" *ngFor="let wishlistItem of wishlistProducts">
         <div class="mx-2 border shadow p-3 mb-5 bg-body rounded">
           <div class="fav-btn">
-          <button mat-button="Accent"><mat-icon>favorite_border</mat-icon></button>
+          <button mat-button="Accent"><mat-icon (click)="removeWishlist(wishlistItem.wishlistId)"
+            style="color: red"
+           >
+            favorite</mat-icon></button>
           </div>
           <nav><img [src]="wishlistItem.img" class="product-img"
             alt="Not Found"></nav>
@@ -13,10 +16,26 @@
             <small style="color: gray">Description : {{wishlistItem .description}}</small>
             <h3><mat-icon>currency_rupee</mat-icon> {{wishlistItem.price}}</h3>
              <!-- <button mat-button="Accent"><mat-icon>favorite</mat-icon></button> -->
-            <button type="button" class="btn btn-primary">Add to cart</button>
+            <button type="button" class="btn btn-primary" (click)="addToCartHanler(wishlistItem)" >Add to cart</button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+
+<div *ngIf="wishlistProducts.length === 0">
+  <div class="site">
+    <div class="sketch">
+      <div class="bee-sketch red"></div>
+      <div class="bee-sketch blue"></div>
+    </div>
+  
+  <h1>#
+    <small>YOUR WISHLIST IS EMPTY</small><br>
+    <h3>Add items that you like to your wishlist. Review them anytime and easily move them to the bag.</h3></h1>
+    
+  </div>
+</div>  
   

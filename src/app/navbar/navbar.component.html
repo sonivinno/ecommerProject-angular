@@ -1,6 +1,7 @@
 <nav class="navbar navbar-light bg-light justify-content-evenly">
   <div class="iconPart">
     <nav><h2 class="navbar-brand" routerLink="">SHOPPING MART</h2></nav>
+    <!-- <img src="https://i.pinimg.com/564x/af/db/ef/afdbef12b5ee4f524ddb1bf97fa20837.jpg" class="navImg" alt="not Found"> -->
     <ul>
     <li class="nav-item active">
       <nav><h3 class="nav-link" routerLink="">Home</h3></nav>
@@ -14,30 +15,48 @@
   <form class="form-inline" (submit)="onSearch()">
     <div class="d-flex align-items-center my-auto">
 
-      <input class="form-control mr-sm-2 term" type="text" placeholder="Searching ....." aria-label="Search" name="term" [(ngModel)]="searchTerm"
-      >
+      <input class="form-control mr-sm-2 term" type="text" placeholder="Searching ....."
+      aria-label="Search" 
+      name="term" [(ngModel)]="searchTerm">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </div>
   </form>
   <ul class="btn-ul">
     <li>
-  <nav><button class="wishlistBtn" routerLink="wishlist">
+  <nav><h5 class="wishlistBtn" routerLink="wishlist">
   <mat-icon>favorite</mat-icon><p>wishlist</p>
-  </button>
+  </h5>
   </nav>
   </li>
   <li>
-
   <nav>
-    <button class="cartBtn" routerLink="cart">
+    <h5 class="cartBtn" routerLink="cart">
     <mat-icon>add_shopping_cart</mat-icon><p>Cart</p>
-    </button>
+    </h5>
 </nav>
+
+</li>
+<nav>
+
+ <div style="position: relative;"  (mouseover)="hoverProfile=true" (mouseout)="hoverProfile=false">
+    <h5 class="profile" *ngIf="isLoggedIn"><mat-icon>person</mat-icon><p>profile</p></h5>
+    <div *ngIf="hoverProfile">
+      <app-profile></app-profile>
+    </div>
+</div>
+</nav>
+<li>
+  <nav>
+    <button class="btn btn-primary cartBtn" routerLink="place-order" *ngIf="isLoggedIn">OrderHistory</button>
+    <!-- <button type="img"><mat-icon>person</mat-icon></button> -->
+  </nav>
+
 </li>
 <li>
   <nav>
-  <button type="button" class="btn btn-primary login" routerLink="login">Sign Up/Sign In</button>
-  </nav>
+  <button class="btn btn-primary login" routerLink="" *ngIf="isLoggedIn" (click)="isCheckingLogout()">Logout</button>
+  <button type="button" class="btn btn-primary login" routerLink="login" *ngIf="!isLoggedIn">Sign In</button>
+</nav>
 </li>
 </ul>
 </div>

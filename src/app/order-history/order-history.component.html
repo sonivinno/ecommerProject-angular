@@ -1,0 +1,55 @@
+
+
+
+<div class="history" *ngIf="orderItem.length !== 0">
+  <div>
+    <ul *ngFor="let item of featuresData" class="contentImg">
+      <li>
+        <img [src]="item.img" alt="Found Image" class="historyImg" class="historyImg">
+      </li>
+      <li>
+        <h3>Title : {{item.title}}</h3>
+      <p>description : {{item.description}}</p>
+      <h3>Price : {{item.price}}</h3>
+      <h3>Status : {{item.status}}</h3>
+      <input type="number" min="1" placeholder="Qty" ><br><br>
+      <select>
+        <option selected>Size : </option>
+        <option value="1">S</option>
+        <option value="2">M</option>
+        <option value="3">L</option>
+        <option value="3">XL</option>
+        <option value="3">XXL</option>
+      </select>
+      </li>
+
+    </ul>
+  </div>
+
+    <div class="deatil">
+      <h2 class="text-center">DETAILS</h2>
+      <hr>
+      <div class="deatils"><h3>FirstName </h3> <h3>{{orderData.userAddress.firstName}} </h3></div>
+      <div class="deatils"><h3>LastName  </h3><h3>  {{orderData.userAddress.lastName}} </h3></div>
+      <div class="deatils"><h3>Address </h3><h3>  {{orderData.userAddress.address}} </h3></div>
+      <div class="deatils"><h3>Zip </h3><h3>  {{orderData.userAddress.zip}}         </h3></div>
+      <div class="deatils"><h3>Email </h3><h3>  {{orderData.userAddress.email}}     </h3></div>
+    </div>
+</div>
+
+
+
+<div class="site" *ngIf="orderItem.length === 0">
+  <div class="sketch">
+    <div class="bee-sketch red"></div>
+    <div class="bee-sketch blue"></div>
+  </div>
+
+<h1>#
+  <small>YOUR ORDERHISTORY IS EMPTY</small>
+<h3>There is not nothing in your .Let's add some items.</h3></h1>
+</div>
+
+  
+  
+  

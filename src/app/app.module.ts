@@ -18,6 +18,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { SingleDataComponent } from './single-data/single-data.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { AllDetailComponent } from './all-detail/all-detail.component';
+import { CartComponent } from './cart/cart.component';
+import { ConfirmOrderComponent } from './confirm-order/confirm-order.component';
+import { ConfirmrouteComponent } from './confirmroute/confirmroute.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -26,7 +32,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     CarouselsComponent,
     ViewDataComponent,
     // AddToCartComponent,
-    NavbarComponent,routingComponents, HomeComponent, LoginComponent, SingleDataComponent, WishlistComponent,
+    NavbarComponent,routingComponents, HomeComponent, LoginComponent, SingleDataComponent, WishlistComponent, OrderHistoryComponent, AllDetailComponent, CartComponent, ConfirmOrderComponent, ConfirmrouteComponent, ProfileComponent,
   ],
   imports: [
     BrowserModule,Ng2SearchPipeModule,

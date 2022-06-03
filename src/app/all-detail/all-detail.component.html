@@ -1,0 +1,163 @@
+<form class="container py-5" [formGroup]="profileForm" id="detailForm" (ngSubmit)="submitForm()">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col">
+        <div class="card my-4 shadow-3">
+          <div class="row g-0">
+            <div class="col-xl-6 d-xl-block bg-image">
+              <img src="https://mdbcdn.b-cdn.net/img/Others/extended-example/delivery.webp" alt="Sample photo"
+                class="img-fluid" />
+              <div class="mask" style="background-color: rgba(0, 0, 0, 0.6)">
+                <div class=" justify-content-center align-items-center h-100">
+                  <div class=" text-center" style="margin-top: 220px;">
+                    <i class="fas fa-truck text-white fa-3x"></i>
+                    <p class="text-white title-style">SHOPPING MARTdelivery</p>
+                    <p class="text-white mb-0"></p>
+  
+                    <figure class="text-center mb-0">
+                      <blockquote class="blockquote text-white">
+                        <p class="pb-3">
+                          <i class="fas fa-quote-left fa-xs text-primary"
+                            style="color: hsl(210, 100%, 50%) ;"></i>
+                          <span class="lead font-italic">Everything at your doorstep.</span>
+                          <i class="fas fa-quote-right fa-xs text-primary"
+                            style="color: hsl(210, 100%, 50%) ;"></i>
+                        </p>
+                      </blockquote>
+  
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-4 text-uppercase text-center">Delivery Info</h3>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1m">First name</label>
+                      <input type="text" id="form3Example1m" class="form-control form-control-lg" formControlName="firstName" />   
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                      <label class="form-label" for="form3Example1n">Last name</label>
+                      <input type="text" id="form3Example1n" class="form-control form-control-lg" formControlName="lastName" />
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example8">Address</label>
+                  <input type="text" id="form3Example8" class="form-control form-control-lg" formControlName="address" />
+                </div>
+  
+  
+  
+                <div class="row">
+                  <div class="col-md-6 mb-4">
+  
+                    <select class="select">
+                      <option value="1">State</option>
+                      <option value="2">Assam</option>
+                      <option value="3">Bihar</option>
+                      <option value="4">Punjab</option>
+                    </select>
+  
+                  </div>
+                  <div class="col-md-6 mb-4">
+  
+                    <select class="select">
+                      <option value="1">City</option>
+                      <option value="2">Dibgugadh</option>
+                      <option value="3">Munger</option>
+                      <option value="4">Sangrur</option>
+                    </select>
+  
+                  </div>
+                </div>
+  
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example3" >Zip</label>
+                  <input type="text" id="form3Example3" class="form-control form-control-lg"  formControlName="zip" />
+                </div>
+  
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="form3Example2">Email</label>
+                  <input type="text" id="form3Example2" class="form-control form-control-lg" formControlName="email"/>
+                </div>
+  
+                <!-- <div class="d-flex justify-content-end pt-3">
+                  <button type="button" class="btn btn-success btn-lg ms-2"
+                    style="background-color:hsl(210, 100%, 50%) ">Place order</button>
+                </div> -->
+                <nav>
+                <button form="detailForm" class="btn btn-danger confirm" >CONFIRM</button>
+                </nav>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <hr>
+
+  <!-- <h1 class="text-center">BANK DETAIL</h1>
+
+  <section style="background-color: #f9c9aa;">
+    <div class="container py-5">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-9 col-lg-7 col-xl-5">
+          <div class="card">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-forms/img1.webp"
+              class="card-img-top" alt="Black Chair" />
+            <div class="card-body">
+              <div class="card-title d-flex justify-content-between mb-0">
+                <p class="text-muted mb-0">Retro Chair</p>
+                <p class="mb-0">$760</p>
+              </div>
+            </div>
+            <div class="rounded-bottom" style="background-color: #eee;">
+              <div class="card-body">
+                <p class="mb-4 text-center">Your payment details</p>
+  
+                <div class="form-outline mb-3">
+                  <label class="form-label" for="formControlLgXM8">Card Number</label>
+                  <input type="text" id="formControlLgXM8" class="form-control"
+                    placeholder="1234 5678 1234 5678" />
+                </div>
+  
+                <div class="row mb-3">
+                  <div class="col-6">
+                    <div class="form-outline">
+                      <label class="form-label" for="formControlLgExpk8">Expire</label>
+                      <input type="password" id="formControlLgExpk8" class="form-control"
+                        placeholder="MM/YYYY" />
+                     
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="form-outline">
+                      <label class="form-label" for="formControlLgcvv8">Cvv</label>
+                      <input type="password" id="formControlLgcvv8" class="form-control" placeholder="Cvv" />
+                    </div>
+                  </div>
+                </div>
+                <button class="btn btn-info btn-block">continue</button>
+              </div>
+              <nav> -->
+            
+             <!-- </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+  <!-- </section> -->
+
+
+

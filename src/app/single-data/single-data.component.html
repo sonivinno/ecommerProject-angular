@@ -4,8 +4,9 @@
     <img class="single-image" [src]="product.img" alt="NOT FOUND IMAGE">
     </div>
     <div class="btn">
-      <button type="button" class="btn-shopping"><mat-icon>shopping_cart</mat-icon> ADD TO CART</button>
-      <button type="button" class="btn-buy"><mat-icon>bolt</mat-icon> BUY NOW</button>
+      <button type="button" class="btn-shopping" (click)="addToCartHanler(product)">
+        <mat-icon>shopping_cart</mat-icon> ADD TO CART</button>
+      <button type="button" class="btn-buy" (click)="addToCartHanler(product)"><mat-icon>bolt</mat-icon> BUY NOW</button>
     </div>
   </div>
   <div class="description">

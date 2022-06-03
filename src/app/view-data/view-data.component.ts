@@ -14,13 +14,16 @@ import { WishlistService } from '../service/wishlist.service';
 })
 export class ViewDataComponent implements OnInit {
   products: Product[] = [];
+  wishList: any[] = [];
   filteredProducts: Product[] = [];
   isLoggedInAuthenticationChecking!: boolean;
-  isCheckingWishlist : boolean = false
+  isCheckingWishlist: boolean = false;
 
-  constructor(private productService: ProductServiceService, private cartService: CartService, 
-    private authService: AuthService, 
-    private route: Router,private wishlistService : WishlistService) { }
+  isAddToWishlist: boolean = false
+
+  constructor(private productService: ProductServiceService, private cartService: CartService,
+    private authService: AuthService,
+    private route: Router, private wishlistService: WishlistService) { }
 
   ngOnInit() {
     this.authService.isLoggedIn.subscribe(isLoggedIn => {
@@ -30,12 +33,21 @@ export class ViewDataComponent implements OnInit {
       .subscribe(data => {
         this.products = data
         this.filteredProducts = this.products;
-      })
+      });
+
+    this.getWishList();
+
 
     this.productService.getSearchString.subscribe(searchTerm => {
       if (searchTerm) {
         this.filteredProducts = this.products.filter(p => p.title.toLocaleLowerCase().includes(searchTerm.trim().toLocaleLowerCase()))
       } else this.filteredProducts = this.products;
+    })
+  }
+
+  getWishList() {
+    this.wishlistService.getAll().subscribe(wishlistProducts => {
+      this.wishList = wishlistProducts;
     })
   }
 
@@ -55,26 +67,37 @@ export class ViewDataComponent implements OnInit {
     // console.log(this.isLoggedInAuthenticationChecking )
   }
 
-  addToWishlist(product: any){
-    console.log(product)
-    this.wishlistService.getAll().subscribe( wishlistProduct =>{
-      console.log(wishlistProduct)
-
-      let wishlistItem = wishlistProduct.find((value : any)=>{
-        return product.id === value.id
-      })
-      if(!this.isLoggedInAuthenticationChecking){
-        this.route.navigate(['login'])
-      }else {
-        this.isCheckingWishlist = true
-        !wishlistItem && this.wishlistService.create(product).subscribe();
+  addToWishlist(product: any) {
+    if (!this.isLoggedInAuthenticationChecking) {
+      this.route.navigate(['login'])
+    } else {
+      let isAlreadyWishlisted = this.isProductInWishlist(product.id);
+      if (isAlreadyWishlisted) {
+        // Remove from wishlist
+        let wp = this.wishList.find((value: any) => {
+          return product.id === value.id
+        });
+        this.wishlistService.deleteItem(wp.wishlistId).subscribe(() => {
+          this.getWishList();
+        })
+      } else {
+        // Add to wishlist
+        let p = this.products.find((value: any) => {
+          return product.id === value.id
+        });
+        this.wishlistService.create(p!).subscribe(() => {
+          this.getWishList();
+        })
       }
-    })
+      // !wishlistItem && this.wishlistService.create(product).subscribe();
+      // this.getWishList();
+      // wishlistItem && this.wishlistService.deleteItem(product).subscribe();
+      // this.getWishList();
+    }
   }
 
-  isProductInCart(productId: number) {
-
-    return true
+  isProductInWishlist(productId: number) {
+    return this.wishList.some(wl => wl.id === productId);
   }
 
 

@@ -16,5 +16,4 @@ export class AuthGuard implements CanActivate {
       !isAuthenticated && this.router.navigate(['/login']);
     return isAuthenticated;
   }
-
 }
